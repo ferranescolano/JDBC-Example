@@ -1,0 +1,231 @@
+REG ISTRO
+La operación se indicará de la siguiente forma:
+R <nombre_usuario> <password> <superheroe>
+Se registrará un usuario y se inicializarán su datos por defecto:
+- Nivel inicial 1.
+- Puntos 0.
+- Lugar: New York.
+También deberán crearse las seis gemas para el juego del usuario y
+situarse aleatoriamente en el mapa (en seis lugares diferentes a donde
+está el usuario y diferentes entre ellas). Si al situarlas coinciden con el
+lugar donde hay un villano, el villano pasará a ser propietario de la
+gema. En caso de que hubiese más de un villano se puede asignar a
+cualquiera de ellos.
+Ejemplos de ejecución de este comando:
+R
+[ Wrong number of arguments ]
+r mar 1234 spider-man
+[ User already exists ]
+r superman 1234 superman
+[ There isn't a superhero with that name ]
+r superman 1234 spider-man
+User registered.
+VER SUPERHÉROES
+Es una operación unitaria indicada con la letra ‘ V’ que permite al usuario
+per los superhéroes que puede escoger para luchar, con su súperpoder.
+Ejemplo de ejecución de este comando:
+LOG IN
+La operación se indicará de la siguiente manera:
+L <nombre_usuario> <password>
+Se verificarán que los datos son correctos y si es así podrá empezar su
+lucha contra villanos. En caso contrario dará el correspondiente mensaje
+de error.
+Una vez que el usuario se loguea se le mostrará la información del lugar
+en el que está: nombre y descripción del lugar, villanos o gemas (libres)
+que haya en el lugar, y las direcciones a las que pueda ir.
+v a
+[ Wrong number of arguments ]
+v
+- SuperHeros -
+BlackWidow Savate
+Hulk Force
+IronMan Flight
+Spider-Man Spider Sense
+SuperJava Java
+Thor Thunderbolt
+Ejemplos de ejecución de este comando:
+DESPLAZARSE
+Para desplazarse por el mapa el jugador deberá indicar N, S, E, W. Por
+lo tanto es una operación unitaria indicando la dirección. Si la dirección
+es correcta se cambiará el lugar del usuario y se le mostrará la
+información del lugar, de la misma forma que se ha detallado
+anteriormente. En caso de que no sea una dirección válida para el lugar
+se indicará el mensaje de error correspondiente.
+Esta operación sólo puede ejecutarse si hay un usuario logueado.
+l
+[ Wrong number of arguments ]
+l mar 1234
+[ Username or password is incorrect ]
+l mar mar
+Welcome, mar
+Place: Muir Island
+Muir Island is an island that was purchased by Dr. Moira
+MacTaggert when she won the Nobel Prize in genetic research.
+He created a Mutant Research Center where he could carry out
+research and treatment of mutants.
+---
+There is nobody here
+---
+There are no gems here
+---
+You can go:
+S E W 
+Ejemplos de ejecución:
+Place: Asgard
+It is the world of the Asgardians surrounded by an
+incomplete wall.
+---
+There is nobody here
+---
+There are no gems here
+---
+You can go:
+N S E W
+n
+Moving to n...
+Place: Knowhere
+Located within what appears to be a head cut from a
+Celestial floating near the Rasgido, Knowhere acts as an
+impromptu port of call and observatory of the final
+destination of the universe for intergalactic travelers of
+all species and all epochs.
+---
+- Enemies -
+Name: Maestro - Debility: Force - Level: 3
+---
+There are no gems here
+---
+You can go:
+S
+e
+[ You can't move in that direction ]
+s
+Moving to s...
+Place: Asgard
+It is the world of the Asgardians surrounded by an
+incomplete wall.
+---
+There is nobody here
+---
+There are no gems here
+---
+You can go:
+N S E W 
+OBTENER GEMA
+El comando se indicará de la siguiente manera:
+G <nombre_de_la_gema_con_un_espacio_en_el_nombre>
+Si la gema está en el lugar donde se encuentra el usuario y es libre (es
+decir, que no pertenece a ningún villano) el usuario pasará a ser el
+propietario. Si el usuario tiene las seis gemas del infinito ha ganado en
+su lucha contra el mal y es el mejor superhéroe del universo. Se
+considera que el usuario ha finalizado el juego y a partir de entonces no
+podrá seguir jugando, ya que habrá ganado en la lucha contra el mal.
+Sólo podrá consultar el ranking de mejores superhéres o borrar su
+cuenta.
+Esta operación sólo puede ejecutarse si hay un usuario logueado.
+Ejemplo de ejecución:
+Ejemplo de obtención de la última gema:
+g ming gem
+[ You are not logged in ]
+l user3 1234
+Welcome, user3
+Place: Ryker Island
+Ryker Island is an island converted into a common criminal
+prison and superheroes.
+---
+There is nobody here
+---
+- Gems -
+Power Gem
+---
+You can go:
+N S E
+g mind gem
+[ Here there is no gem with that name ]
+g power gem
+You have got the gem
+g mind gem
+You have got the gem
+YOU WIN!!! YOU HAVE ALL GEMS!
+n
+[ You already finish your game ]
+LUCHA CONTRA V ILLANO
+El comando se indicará de la siguiente manera:
+B <nombre_del_villano>
+Si el jugador está en el mismo lugar que el villano puede luchar contra
+él. Lucharán con todos sus poderes con ataques de piedra-papel-tijeralagarto-spock. El usuario (superhéroe) tendrá tantos ataques como nivel
+tenga. Si además su súperpoder es la debilidad del villano tendrá un
+ataque adicional. El villano tendrá tantos ataques como nivel tenga. Se
+indicarán esos datos al iniciar la batalla. A partir de ahí cada lucha
+descuenta un ataque a cada contrincante (superhéroe y villano).
+Se genera tirada del usuario, donde tirada deberá ser piedra, papel,
+tijera, lagarto o spock (rock, paper, scissors, lizard, spock). El villano
+lanzará su tirada también. Deben mostrarse las dos.
+Por cada tirada se evalúa quien gana y se incrementa su número de
+victorias.
+- Si gana el usuario (su número de victorias es mayor a la del villano) y
+al villano no le quedan ataques, el usuario ganará 5 puntos. En caso de
+que el villano tuviese gemas, las perdería y quedarías libres en el lugar
+donde se encuentran. El villano huiría a un lugar diferente.
+- Si gana el villano y al usuario no le quedan ataques, el usuario pierde 2
+puntos y en caso de tener gemas, pasarían a ser propiedad del villano. El
+villano se desplazaría a otro lugar y se llevaría las gemas con él.
+- En caso de empate, sin ataques por parte de ninguno de los lados, el
+villano huiría a otro lugar y no afectaría ni a gemas ni a puntos de nadie.
+Si los ataques no han finalizado la batalla sigue hasta que se llega a un
+punto indicado anteriormente.
+Si el jugador ha ganado, al subir los puntos se comprobará si ha llegado
+a 50. Si es así, subirá de nivel y se reiniciará el contador de puntos a 0,
+o con los puntos sobrantes en caso de superar los 50.
+En caso de que pierda se debe tener en cuenta que los puntos nunca
+pueden ser negativos.
+Esta operación sólo puede ejecutarse si hay un usuario logueado.
+
+BORRAR USUAR IO
+El comando se indicará de la siguiente manera:
+D <password>
+El usuario puede eliminar su cuenta si así lo desea. Se verificará el
+password y se borrarán los datos del usuario.
+Esta operación sólo puede ejecutarse si hay un usuario logueado.
+Ejemplo de ejecución:
+d 1234
+[ You are not logged in ]
+l superman 1234
+Welcome, superman
+Place: New York
+New York City is the largest city in the state of New York
+and the city with the largest metropolitan area in the
+United States of America.
+---
+- Enemies -
+Name: Wendigo - Debility: Force - Level: 1
+---
+There are no gems here
+---
+You can go:
+N S E W
+d
+[ Wrong number of arguments ]
+d e
+[ Delete aborted. Your password is wrong ]
+d 1234
+User deleted.
+RANK ING
+Se trata de una operación unitaria indicada con la letra K. Mostrará el
+ranking de usuarios, indicando nombre de usuario, superhéroe escogido,
+nº de gemas conseguidas, nivel y nº de puntos. Se ordenará por nº de
+gemas conseguidas, nivel y nº de puntos de mayor a menor.
+Ejemplo de ejecución cuando aún ningún usuario tiene ninguna gema:
+Ejemplo de ranking con usuarios con gemas:
+Mensajes de error de la aplicación:
+[ Wrong command ]
+[ Wrong number of arguments ]
+[ User already exists ]
+[ There isn't a superhero with that name ]
+[ Username or password is incorrect ]
+[ You are not logged in ]
+[ You can't move in that direction ]
+[ Here there is no gem with that name ]
+[ You already finish your game ]
+[ Here there is no enemy with that name ]
+[ Delete aborted. Your password is wrong ]
